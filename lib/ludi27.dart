@@ -33,6 +33,7 @@ class App extends StatelessWidget {
 }
 
 class MesNombres extends StatelessWidget {
+  
   final String nombres1;
 
   const MesNombres({
