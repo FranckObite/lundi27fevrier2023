@@ -1,61 +1,23 @@
-/* import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 
-import '../todoListApp.dart';
-
-
-
-class HomePage extends StatefulWidget {
+class TodoListApp extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  State<TodoListApp> createState() => _TodoListAppState();
 }
 
-class _HomePageState extends State<HomePage> {
-  int selectedIndex = 0;
-
+class _TodoListAppState extends State<TodoListApp> {
   @override
   Widget build(BuildContext context) {
-    final tabs = [
-      TodoListWidget(),
-      Container(),
-    ];
-
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 1, 18, 49),
       appBar: AppBar(
-        title: Text(" Mon App Todo "),
-        backgroundColor: Colors.red,
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        unselectedItemColor: Colors.white.withOpacity(0.7),
-        selectedItemColor: Colors.white,
-        currentIndex: selectedIndex,
-        onTap: (index) => setState(() {
-          selectedIndex = index;
-        }),
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.fact_check_outlined),
-            label: 'Todos',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.done, size: 28),
-            label: 'Completed',
-          ),
-        ],
-      ),
-      body: tabs[selectedIndex],
-      floatingActionButton: FloatingActionButton(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        backgroundColor: Colors.black,
-        onPressed: () => showDialog(
-          context: context,
-          builder: (context) => AddTodoDialogWidget(),
-          barrierDismissible: false,
-        ),
-        child: Icon(Icons.add),
+        title: Text("Mon App Todo"),
+        leading: Icon(Icons.fork_right_outlined),
+        actions: [Icon(Icons.arrow_drop_down_sharp)],
+        backgroundColor: Colors.blueAccent,
       ),
     );
   }
-} */
+}
