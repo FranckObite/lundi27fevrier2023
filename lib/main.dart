@@ -1,9 +1,11 @@
+import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:jeudi23challenge/fonctionFonction.dart';
 import 'package:jeudi23challenge/maFuction.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jeudi23challenge/pages/exoSection10.dart';
 import 'package:jeudi23challenge/pages/pageVide.dart';
+import 'package:jeudi23challenge/pages/section10Exo.dart';
 
 import 'ffounction.dart';
 import 'fonctionNaviguons.dart';
@@ -22,35 +24,41 @@ class MyApp extends StatelessWidget {
       backgroundColor: Color.fromARGB(255, 4, 123, 111),
       appBar: AppBar(
         backgroundColor: Colors.red,
-        title: Text("Mon Appli Chalenge"),
+        title: Text("Mon Appli Challenge"),
       ),
       drawer: Nafo(),
       body: SingleChildScrollView(
         child: Container(
           width: size.width,
           height: size.height,
-          padding: new EdgeInsets.only(top: 50.0),
           child: Center(
             child: Column(children: [
-              CircleAvatar(
-                radius: 50.0,
-
-                //backgroundColor: Color.fromARGB(255, 106, 80, 2),
-
-                //foregroundColor: Color.fromARGB(255, 31, 0, 8),
-                foregroundImage: AssetImage('images/moi.png'),
-              ),
+              image_carousel,
               SizedBox(height: 20.0),
-              Text(
-                "Obité franck",
-                style: GoogleFonts.pacifico(fontSize: 40, color: Colors.white),
+              SizedBox(height: 20.0),
+              Padding(
+                padding: const EdgeInsets.only(left: 120.0),
+                child: ListTile(
+                  title: Text(
+                    "Obité franck",
+                    style:
+                        GoogleFonts.pacifico(fontSize: 40, color: Colors.white),
+                  ),
+                  leading: CircleAvatar(
+                    radius: 30.0,
+              
+                    //backgroundColor: Color.fromARGB(255, 106, 80, 2),
+              
+                    //foregroundColor: Color.fromARGB(255, 31, 0, 8),
+                    foregroundImage: AssetImage('images/moi.png'),
+                  ),
+                  subtitle: Text("DEVELOPPEUR FLUTER",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                      )),
+                ),
               ),
-              SizedBox(height: 20),
-              Text("DEVELOPPEUR FLUTER",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
-                  )),
               SizedBox(height: 20),
               Padding(
                 padding: EdgeInsets.all(30),
@@ -112,23 +120,16 @@ class MyApp extends StatelessWidget {
                         ),
                         child: InkWell(
                           child: ListTile(
-                            title: Text(' Home '),
+                            title: Text(' Abidjan/ plateau Dokui '),
                             leading: Icon(
-                              Icons.home,
+                              Icons.add_location,
                               color: Color.fromARGB(255, 167, 53, 53),
                             ),
-                            trailing: Icon(Icons.arrow_drop_down),
+                            //trailing: Icon(Icons.one_k),
                           ),
                         ),
                       ),
                     ),
-                    Divider(),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: App(),
-                    ),
-                    Divider(),
-                    Myfonction(),
                   ],
                 ),
               ),
@@ -138,4 +139,25 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+
+  Widget image_carousel = new Container(
+    height: 300.0,
+    child: new Carousel(
+      boxFit: BoxFit.cover,
+      images: [
+        AssetImage("images/app.jpeg"),
+        AssetImage("images/cover.jpeg"),
+        AssetImage("images/flutter.webp"),
+        //AssetImage("images/ppp.webp")
+      ],
+      autoplay: true,
+      //animationCurve: Curves.fastOutSlowIn,
+      //animationDuration: Duration(milliseconds: 1000),
+      dotSize: 4.0,
+      dotColor: Colors.red,
+      indicatorBgPadding: 2.0,
+
+      dotBgColor: Colors.transparent,
+    ),
+  );
 }

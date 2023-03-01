@@ -1,6 +1,5 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:jeudi23challenge/pages/suiteExoDix.dart';
 
 import 'monIconeClicable.dart';
 import 'mon_icone.dart';
@@ -41,7 +40,6 @@ class _MonAppState extends State<MonApp> {
                             padding: EdgeInsets.only(right: 50),
                             child: Stack(
                               children: [
-                                maPhoto2profile(rondeur: 50),
                                 maPhoto2profie(rondeur: (50)),
                               ],
                             ),
@@ -268,7 +266,15 @@ class _MonAppState extends State<MonApp> {
                 thickness: 1,
               ),
               Padding(padding: EdgeInsets.only(top: 5)),
-              Container(
+
+              /* Exo10(
+                  imageProfil: "images/moi.png",
+                  icon1: Icons.favorite,
+                  icon2: Icons.message,
+                  image2: "images/beach.jpg"),
+              SizedBox(height: 10), */
+              Suiteexo10(),
+              /* Container(
                 width: size.width,
                 height: 500,
                 decoration: BoxDecoration(
@@ -300,11 +306,13 @@ class _MonAppState extends State<MonApp> {
                                 macouleur: Color.fromARGB(255, 56, 54, 54))
                           ],
                         ),
+                        padding: EdgeInsets.all(20),
+                        
                       ),
                     )
                   ],
                 ),
-              )
+              ) */
             ])),
           ),
         ));
@@ -353,9 +361,7 @@ class _MonAppState extends State<MonApp> {
       radius: 52,
       backgroundColor: Colors.white,
       child: CircleAvatar(
-          radius: 50,
-          foregroundImage: NetworkImage(
-              "https://thumbs.dreamstime.com/b/piano-%C3%A0-queue-sur-le-littoral-un-la-plage-de-129527738.jpg")),
+          radius: 50, foregroundImage: AssetImage("images/moi.png")),
     );
   }
 

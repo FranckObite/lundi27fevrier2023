@@ -6,8 +6,6 @@ class Myfonction extends StatefulWidget {
 }
 
 class _MyfonctionState extends State<Myfonction> {
-
-
   String resultat = '';
 
   final valeurTextFieldcontroller = TextEditingController();
@@ -30,7 +28,6 @@ class _MyfonctionState extends State<Myfonction> {
               child: TextFormField(
                 keyboardType: TextInputType.number,
                 controller: valeurTextFieldcontroller,
-                
                 decoration:
                     const InputDecoration(hintText: ' Entrer un chiffre'),
               )),

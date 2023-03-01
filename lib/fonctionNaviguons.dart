@@ -1,7 +1,7 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:jeudi23challenge/pages/exoSection10.dart';
+import 'package:jeudi23challenge/pages/pageExoDuLundi27Fevrier.dart';
+import 'package:jeudi23challenge/pages/section10Exo.dart';
 
 class Nafo extends StatelessWidget {
   const Nafo({super.key});
@@ -42,7 +42,7 @@ class Nafo extends StatelessWidget {
                   context, MaterialPageRoute(builder: (context) => MonApp()));
             },
             child: ListTile(
-              title: Text("chalenge exo section 10 francais"),
+              title: Text("challenge exo section 10 francais"),
               leading: Icon(
                 Icons.facebook_rounded,
                 color: Colors.red,
@@ -52,7 +52,7 @@ class Nafo extends StatelessWidget {
           InkWell(
             onTap: () {},
             child: ListTile(
-              title: Text(" Chalenge exo section 5 anglais"),
+              title: Text(" Challenge exo section 5 anglais"),
               leading: Icon(
                 Icons.person,
                 color: Colors.red,
@@ -60,9 +60,14 @@ class Nafo extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => chalengeLudi27Complet()));
+            },
             child: ListTile(
-              title: Text("chalenge du lundi27 fevrier"),
+              title: Text("challenge du lundi27 fevrier"),
               leading: Icon(
                 Icons.run_circle,
                 color: Colors.red,
@@ -85,7 +90,7 @@ class Nafo extends StatelessWidget {
           InkWell(
             onTap: () {},
             child: ListTile(
-              title: Text(" Chalenge à venir"),
+              title: Text(" Challenge à venir"),
               leading: Icon(
                 Icons.snowing,
                 color: Colors.red,
@@ -93,9 +98,12 @@ class Nafo extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => S10()));
+            },
             child: ListTile(
-              title: Text(" Autres chalenges"),
+              title: Text(" Autres challenges"),
               leading: Icon(Icons.settings, color: Colors.grey),
             ),
           ),
