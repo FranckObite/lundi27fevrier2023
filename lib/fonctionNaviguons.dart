@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jeudi23challenge/page/todoHomePage.dart';
 import 'package:jeudi23challenge/pages/exoSection10.dart';
 import 'package:jeudi23challenge/pages/pageExoDuLundi27Fevrier.dart';
 import 'package:jeudi23challenge/pages/section10Exo.dart';
@@ -76,11 +77,11 @@ class Nafo extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              //Navigator.push(context,
-              //MaterialPageRoute(builder: (context) => new Cart()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => TodoListApp()));
             },
             child: ListTile(
-              title: Text(" Challenge du mardi28"),
+              title: Text(" ToDo App"),
               leading: Icon(
                 Icons.list_alt_outlined,
                 color: Colors.red,

@@ -46,9 +46,9 @@ class MyApp extends StatelessWidget {
                   ),
                   leading: CircleAvatar(
                     radius: 30.0,
-              
+
                     //backgroundColor: Color.fromARGB(255, 106, 80, 2),
-              
+
                     //foregroundColor: Color.fromARGB(255, 31, 0, 8),
                     foregroundImage: AssetImage('images/moi.png'),
                   ),
