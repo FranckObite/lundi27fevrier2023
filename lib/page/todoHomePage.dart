@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:jeudi23challenge/Util/dialog_box.dart';
 import 'package:jeudi23challenge/Util/todo_tile.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:jeudi23challenge/data/database.dart';
 import 'package:jeudi23challenge/ludi27.dart';
 
 /* import 'package:hive/hive.dart';
@@ -18,6 +20,22 @@ class TodoListApp extends StatefulWidget {
 }
 
 class _TodoListAppState extends State<TodoListApp> {
+  //referencement de la hive box
+  final _myBox = Hive.box('myBox');
+  ToDoDataBase db = ToDoDataBase();
+
+  @override
+  void initState() {
+    //si  c'est la premiere ouverture de l'app, on crè cette data par defaut
+    if (_myBox.get("TODOLIST") == null &&
+        _myBox.get("DESCRIPTIONLIST") == null) {
+      db.createInitialeData();
+    } else {
+      //cela exit deja
+      db.loadData();
+    }
+    super.initState();
+  }
   //creation du controleur
 
   final _controller = TextEditingController();
@@ -25,7 +43,8 @@ class _TodoListAppState extends State<TodoListApp> {
 
   //list de la TODO APP
 
-  List toDolist = [
+  /* List toDolist = [
+
     [
       "Causerie débat",
       false,
@@ -39,25 +58,27 @@ class _TodoListAppState extends State<TodoListApp> {
     ["Description live Coding"],
     ["Description challenge"]
   ];
-
+ */
   //checkBoxChanged
 
   void checkBoxChanged(bool? value, int index) {
     setState(() {
-      toDolist[index][1] = !toDolist[index][1];
+      db.toDolist[index][1] = !db.toDolist[index][1];
     });
+    db.updateDataBase();
   }
 
   //enregistrement de la nouvelle chose à faire
 
   void saveNewTask() {
     setState(() {
-      toDolist.add([_controller.text, false]);
-      descriptionList.add([_controller2.text]);
+      db.toDolist.add([_controller.text, false]);
+      db.descriptionList.add([_controller2.text]);
       _controller2.clear();
       _controller.clear();
     });
     Navigator.of(context).pop();
+    db.updateDataBase();
   }
 
   //création d'une nouvelle chose à faire
@@ -79,9 +100,10 @@ class _TodoListAppState extends State<TodoListApp> {
 
   void deleteTask(int index) {
     setState(() {
-      toDolist.removeAt(index);
-      descriptionList.removeAt(index);
+      db.toDolist.removeAt(index);
+      db.descriptionList.removeAt(index);
     });
+    db.updateDataBase();
   }
 
   @override
@@ -126,15 +148,14 @@ class _TodoListAppState extends State<TodoListApp> {
           child: Icon(Icons.add),
         ),
         body: ListView.builder(
-          itemCount: toDolist.length,
+          itemCount: db.toDolist.length,
           itemBuilder: (context, index) {
-            int i = 0;
-
             return ToDoTile(
-              numeroTache: (toDolist.length - (toDolist.length - i)).toString(),
-              taskName: toDolist[index][0],
-              taskCompletd: toDolist[index][1],
-              Description: descriptionList[index][0],
+              numeroTache:
+                  (db.toDolist.indexOf(db.toDolist[index]) + 1).toString(),
+              taskName: db.toDolist[index][0],
+              taskCompletd: db.toDolist[index][1],
+              Description: db.descriptionList[index][0],
               onChanged: (value) => checkBoxChanged(value, index),
               deleteFunction: (contex) => deleteTask(index),
             );
@@ -154,6 +175,17 @@ class _TodoListAppState extends State<TodoListApp> {
                 onChanged: (p0) {}) */
         ));
   }
+
+  /* fontion(int nbBoucle) {
+    return;
+
+    for (var i = 0; i <= nbBoucle; i++) {
+      (db.toDolist.length - (db.toDolist.length - i));
+
+      ;
+    }
+    ;
+  } */
 
   Widget image_carousel = new Container(
     height: 300.0,

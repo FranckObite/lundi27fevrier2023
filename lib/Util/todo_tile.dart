@@ -33,16 +33,24 @@ class ToDoTile extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           )
         ]),
+        startActionPane: ActionPane(motion: StretchMotion(), children: [
+          SlidableAction(
+            //ma fonction suppression est ici
+            onPressed: deleteFunction,
+            icon: Icons.edit,
+            backgroundColor: Colors.green,
+            borderRadius: BorderRadius.circular(12),
+          )
+        ]),
         child: Container(
           padding: EdgeInsets.all(24),
           decoration: BoxDecoration(
               color: Colors.blueAccent,
               borderRadius: BorderRadius.circular(12)),
           child: ListTile(
-            leading: Checkbox(
-              value: taskCompletd,
-              onChanged: onChanged,
-              activeColor: Color.fromARGB(255, 1, 18, 49),
+            leading: Text(
+              numeroTache,
+              style: TextStyle(fontSize: 40),
             ),
             title: Text(
               taskName,
@@ -60,9 +68,10 @@ class ToDoTile extends StatelessWidget {
               style: TextStyle(color: Colors.white),
             ),
             //revenir dessus après
-            trailing: Text(
-              numeroTache,
-              style: TextStyle(fontSize: 40),
+            trailing: Checkbox(
+              value: taskCompletd,
+              onChanged: onChanged,
+              activeColor: Color.fromARGB(255, 1, 18, 49),
             ),
           ),
         ),

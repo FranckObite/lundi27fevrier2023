@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jeudi23challenge/page/todoHomePage.dart';
+import 'package:jeudi23challenge/pages/changerThemePage.dart';
 import 'package:jeudi23challenge/pages/exoSection10.dart';
 import 'package:jeudi23challenge/pages/pageExoDuLundi27Fevrier.dart';
 import 'package:jeudi23challenge/pages/section10Exo.dart';
@@ -89,11 +90,19 @@ class Nafo extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ChangerLeThemeDeMaPage()));
+                      
+                      
+            },
+            
             child: ListTile(
-              title: Text(" Challenge à venir"),
+              title: Text(" Challenge Changer le theme de mon App"),
               leading: Icon(
-                Icons.snowing,
+                Icons.nightlight_round,
                 color: Colors.red,
               ),
             ),

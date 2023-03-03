@@ -11,7 +11,16 @@ import 'ffounction.dart';
 import 'fonctionNaviguons.dart';
 import 'ludi27.dart';
 
-void main() {
+import 'package:hive_flutter/hive_flutter.dart';
+
+main() async {
+  //initialisation du hive
+
+  await Hive.initFlutter();
+
+  //open a box
+
+  var box = await Hive.openBox("myBox");
   runApp(MaterialApp(home: MyApp()));
 }
 
