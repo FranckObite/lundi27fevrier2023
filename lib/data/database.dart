@@ -11,7 +11,6 @@ class ToDoDataBase {
 
   //executer cette methodes pour la premiere ouverture de mon app
   void createInitialeData() {
-    
     List toDolist = [
       [
         "Causerie débat",
@@ -19,26 +18,26 @@ class ToDoDataBase {
       ],
       ["Live Coding", false],
       [" Challenge Algo Dart", false],
+      ["coding", false],
     ];
 
     List descriptionList = [
       ["Description causerie débat"],
       ["Description live Coding"],
-      ["Description challenge"]
+      ["Description challenge"],
+      ["Description"],
     ];
   }
 
   //lancement les donnnées dans la base de données
 
   void loadData() {
-
     toDolist = _myBox.get("TODOLIST");
     descriptionList = _myBox.get("DESCRIPTIONLIST");
   }
 
   //mise à jour de la bd
   void updateDataBase() {
-
     _myBox.put("TODOLIST", toDolist);
     _myBox.put("DESCRIPTIONLIST", descriptionList);
   }

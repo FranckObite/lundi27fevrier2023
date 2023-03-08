@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jeudi23challenge/page/todoHomePage.dart';
+import 'package:jeudi23challenge/pages/challengeInscription.dart';
 import 'package:jeudi23challenge/pages/changerThemePage.dart';
 import 'package:jeudi23challenge/pages/exoSection10.dart';
 import 'package:jeudi23challenge/pages/pageExoDuLundi27Fevrier.dart';
@@ -90,21 +91,55 @@ class Nafo extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ChangerLeThemeDeMaPage()));
-                      
-                      
-            },
-            
             child: ListTile(
               title: Text(" Challenge Changer le theme de mon App"),
               leading: Icon(
                 Icons.nightlight_round,
                 color: Colors.red,
               ),
+              trailing: IconButton(
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return new AlertDialog(
+                            title: new Text("Plus de Details"),
+                            content: Column(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                ChangerLeThemeDeMaPage()));
+                                  },
+                                  child: ListTile(
+                                    title:
+                                        new Text('Changer le theme de mon App'),
+                                    leading: Icon(Icons.sunny, color: Colors.red ),
+                                  ),
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                MonInscriptionApp()));
+                                  },
+                                  child: ListTile(
+                                    title:
+                                        new Text("Challenge Page de Connexion"),
+                                    leading: Icon(Icons.login_outlined, color: Colors.red,),
+                                  ),
+                                )
+                              ],
+                            ),
+                          );
+                        });
+                  },
+                  icon: Icon(Icons.arrow_drop_down_sharp)),
             ),
           ),
           InkWell(
@@ -118,10 +153,13 @@ class Nafo extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => MonInscriptionApp()));
+            },
             child: ListTile(
-              title: Text("A propos"),
-              leading: Icon(Icons.help, color: Colors.grey),
+              title: Text("Page de Connexion"),
+              leading: Icon(Icons.login, color: Colors.red),
             ),
           ),
         ],

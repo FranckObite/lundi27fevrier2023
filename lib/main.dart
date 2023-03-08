@@ -36,11 +36,11 @@ class MyApp extends StatelessWidget {
         title: Text("Mon Appli Challenge"),
       ),
       drawer: Nafo(),
-      body: SingleChildScrollView(
-        child: Container(
-          width: size.width,
-          height: size.height,
-          child: Center(
+      body: Container(
+        width: size.width,
+        height: size.height,
+        child: Center(
+          child: SingleChildScrollView(
             child: Column(children: [
               image_carousel,
               SizedBox(height: 20.0),

@@ -42,36 +42,45 @@ class ToDoTile extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           )
         ]),
-        child: Container(
-          padding: EdgeInsets.all(24),
-          decoration: BoxDecoration(
-              color: Colors.blueAccent,
-              borderRadius: BorderRadius.circular(12)),
-          child: ListTile(
-            leading: Text(
-              numeroTache,
-              style: TextStyle(fontSize: 40),
-            ),
-            title: Text(
-              taskName,
-              //utilisation de la methode ternaire
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  decoration: taskCompletd
-                      ? TextDecoration.lineThrough
-                      : TextDecoration.none),
-            ),
-            subtitle: Text(
-              Description,
-              style: TextStyle(color: Colors.white),
-            ),
-            //revenir dessus après
-            trailing: Checkbox(
-              value: taskCompletd,
-              onChanged: onChanged,
-              activeColor: Color.fromARGB(255, 1, 18, 49),
+        child: Card(
+          child: Container(
+            padding: EdgeInsets.all(24),
+            decoration: BoxDecoration(
+                color: Colors.blueAccent,
+                borderRadius: BorderRadius.circular(12)),
+            child: ListTile(
+              leading: CircleAvatar(
+                radius: 40,
+                backgroundColor: Colors.white,
+                child: Text(
+                  numeroTache,
+                  style: TextStyle(
+                    fontSize: 40,
+                    color: Color.fromARGB(255, 1, 18, 49),
+                  ),
+                ),
+              ),
+              title: Text(
+                taskName,
+                //utilisation de la methode ternaire
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    decoration: taskCompletd
+                        ? TextDecoration.lineThrough
+                        : TextDecoration.none),
+              ),
+              subtitle: Text(
+                Description,
+                style: TextStyle(color: Colors.white),
+              ),
+              //revenir dessus après
+              trailing: Checkbox(
+                value: taskCompletd,
+                onChanged: onChanged,
+                activeColor: Color.fromARGB(255, 1, 18, 49),
+              ),
             ),
           ),
         ),

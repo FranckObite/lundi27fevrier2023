@@ -111,7 +111,9 @@ class _TodoListAppState extends State<TodoListApp> {
     return Scaffold(
         backgroundColor: Color.fromARGB(255, 1, 18, 49),
         appBar: AppBar(
-          title: Text("Mon App Todo"),
+          title: Text(
+            "Mon App Todo",
+          ),
           backgroundColor: Colors.blueAccent,
         ),
         endDrawer: Drawer(
@@ -150,14 +152,16 @@ class _TodoListAppState extends State<TodoListApp> {
         body: ListView.builder(
           itemCount: db.toDolist.length,
           itemBuilder: (context, index) {
-            return ToDoTile(
-              numeroTache:
-                  (db.toDolist.indexOf(db.toDolist[index]) + 1).toString(),
-              taskName: db.toDolist[index][0],
-              taskCompletd: db.toDolist[index][1],
-              Description: db.descriptionList[index][0],
-              onChanged: (value) => checkBoxChanged(value, index),
-              deleteFunction: (contex) => deleteTask(index),
+            return SingleChildScrollView(
+              child: ToDoTile(
+                numeroTache:
+                    (db.toDolist.indexOf(db.toDolist[index]) + 1).toString(),
+                taskName: db.toDolist[index][0],
+                taskCompletd: db.toDolist[index][1],
+                Description: db.descriptionList[index][0],
+                onChanged: (value) => checkBoxChanged(value, index),
+                deleteFunction: (contex) => deleteTask(index),
+              ),
             );
           },
 
