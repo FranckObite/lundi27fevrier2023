@@ -39,111 +39,109 @@ class MyApp extends StatelessWidget {
       body: Container(
         width: size.width,
         height: size.height,
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(children: [
-              image_carousel,
-              SizedBox(height: 20.0),
-              SizedBox(height: 20.0),
-              Padding(
-                padding: const EdgeInsets.only(left: 120.0),
-                child: ListTile(
-                  title: Text(
-                    "Obité franck",
-                    style:
-                        GoogleFonts.pacifico(fontSize: 40, color: Colors.white),
-                  ),
-                  leading: CircleAvatar(
-                    radius: 30.0,
+        child: SingleChildScrollView(
+          child: Column(children: [
+            image_carousel,
+            SizedBox(height: 20.0),
+            SizedBox(height: 20.0),
+            Padding(
+              padding: const EdgeInsets.only(left: 120.0),
+              child: ListTile(
+                title: Text(
+                  "Obité franck",
+                  style:
+                      GoogleFonts.pacifico(fontSize: 40, color: Colors.white),
+                ),
+                leading: CircleAvatar(
+                  radius: 30.0,
 
-                    //backgroundColor: Color.fromARGB(255, 106, 80, 2),
+                  //backgroundColor: Color.fromARGB(255, 106, 80, 2),
 
-                    //foregroundColor: Color.fromARGB(255, 31, 0, 8),
-                    foregroundImage: AssetImage('images/moi.png'),
-                  ),
-                  subtitle: Text("DEVELOPPEUR FLUTER",
-                      style: TextStyle(
-                        fontSize: 20,
+                  //foregroundColor: Color.fromARGB(255, 31, 0, 8),
+                  foregroundImage: AssetImage('images/moi.png'),
+                ),
+                subtitle: Text("DEVELOPPEUR FLUTER",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    )),
+              ),
+            ),
+            SizedBox(height: 20),
+            Padding(
+              padding: EdgeInsets.all(30),
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.center,
+                    child: Container(
+                      width: size.width,
+                      height: 50,
+                      decoration: BoxDecoration(
                         color: Colors.white,
+                        borderRadius: BorderRadius.circular(1.0),
+                      ),
+                      child: InkWell(
+                          child: ListTile(
+                        title: Text(' +225 075 492 578 '),
+                        leading: Icon(
+                          Icons.phone,
+                          color: Color.fromARGB(255, 160, 34, 34),
+                        ),
                       )),
-                ),
-              ),
-              SizedBox(height: 20),
-              Padding(
-                padding: EdgeInsets.all(30),
-                child: Column(
-                  children: [
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        width: size.width,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(1.0),
-                        ),
-                        child: InkWell(
-                            child: ListTile(
-                          title: Text(' +225 075 492 578 '),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Container(
+                      width: size.width,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(1.0),
+                      ),
+                      child: InkWell(
+                        child: ListTile(
+                          title: Text(' obitéfrank@gmail.com '),
                           leading: Icon(
-                            Icons.phone,
-                            color: Color.fromARGB(255, 160, 34, 34),
-                          ),
-                        )),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        width: size.width,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(1.0),
-                        ),
-                        child: InkWell(
-                          child: ListTile(
-                            title: Text(' obitéfrank@gmail.com '),
-                            leading: Icon(
-                              Icons.email,
-                              color: Color.fromARGB(255, 167, 53, 53),
-                            ),
+                            Icons.email,
+                            color: Color.fromARGB(255, 167, 53, 53),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        width: size.width,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(1.0),
-                        ),
-                        child: InkWell(
-                          child: ListTile(
-                            title: Text(' Abidjan/ plateau Dokui '),
-                            leading: Icon(
-                              Icons.add_location,
-                              color: Color.fromARGB(255, 167, 53, 53),
-                            ),
-                            //trailing: Icon(Icons.one_k),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Container(
+                      width: size.width,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(1.0),
+                      ),
+                      child: InkWell(
+                        child: ListTile(
+                          title: Text(' Abidjan/ plateau Dokui '),
+                          leading: Icon(
+                            Icons.add_location,
+                            color: Color.fromARGB(255, 167, 53, 53),
                           ),
+                          //trailing: Icon(Icons.one_k),
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ]),
-          ),
+            ),
+          ]),
         ),
       ),
     );

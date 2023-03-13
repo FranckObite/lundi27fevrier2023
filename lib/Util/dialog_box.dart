@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jeudi23challenge/Util/my_button.dart';
 
 class DialogBox extends StatelessWidget {
+  
   final controller;
 
   final contoller2;

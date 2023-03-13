@@ -11,6 +11,13 @@ class App extends StatelessWidget {
             scrollDirection: axisDirectionToAxis(AxisDirection.right),
             children: [
               MesNombres(nombres1: "1"),
+              /* VerticalDivider(
+                width: 40.0,
+                thickness: 2,
+                color: Colors.white,
+                indent: 20.0,
+                //endIndent: 50,
+              ), */
               MesNombres(nombres1: "2"),
               MesNombres(nombres1: "3")
             ],
@@ -33,7 +40,6 @@ class App extends StatelessWidget {
 }
 
 class MesNombres extends StatelessWidget {
-  
   final String nombres1;
 
   const MesNombres({

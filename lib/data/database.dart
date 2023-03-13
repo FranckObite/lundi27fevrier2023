@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+
 class ToDoDataBase {
   //reference the box
 
@@ -8,9 +9,11 @@ class ToDoDataBase {
   List descriptionList = [];
 
   final _myBox = Hive.box('myBox');
+  
 
   //executer cette methodes pour la premiere ouverture de mon app
   void createInitialeData() {
+
     List toDolist = [
       [
         "Causerie débat",
@@ -32,6 +35,7 @@ class ToDoDataBase {
   //lancement les donnnées dans la base de données
 
   void loadData() {
+
     toDolist = _myBox.get("TODOLIST");
     descriptionList = _myBox.get("DESCRIPTIONLIST");
   }

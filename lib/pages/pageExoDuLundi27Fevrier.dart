@@ -42,9 +42,9 @@ class _chalengeLudi27CompletState extends State<chalengeLudi27Complet> {
     );
   }
 
-  Widget image_carousel = new Container(
+  Widget image_carousel = Container(
     height: 300.0,
-    child: new Carousel(
+    child: Carousel(
       boxFit: BoxFit.cover,
       images: [
         AssetImage("images/app.jpeg"),

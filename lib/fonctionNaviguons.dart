@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jeudi23challenge/page/challengeSection7Ang.dart';
+import 'package:jeudi23challenge/page/challengeSection8Ang.dart';
+import 'package:jeudi23challenge/page/changerLaCouleurduBody.dart';
 import 'package:jeudi23challenge/page/todoHomePage.dart';
 import 'package:jeudi23challenge/pages/challengeInscription.dart';
 import 'package:jeudi23challenge/pages/changerThemePage.dart';
@@ -18,13 +21,11 @@ class Nafo extends StatelessWidget {
           new UserAccountsDrawerHeader(
             accountName: Text("Franck Obité"),
             accountEmail: Text("obitefrank@gmail.com"),
-            currentAccountPicture: GestureDetector(
-              child: new CircleAvatar(
-                //backgroundColor: Colors.grey,
-                foregroundImage: AssetImage("images/moi.png"),
+            currentAccountPicture: new CircleAvatar(
+              //backgroundColor: Colors.grey,
+              foregroundImage: AssetImage("images/moi.png"),
 
-                child: Icon(Icons.person, color: Colors.white),
-              ),
+              child: Icon(Icons.person, color: Colors.white),
             ),
             decoration:
                 new BoxDecoration(color: Color.fromARGB(255, 4, 123, 111)),
@@ -79,6 +80,35 @@ class Nafo extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => DicePage()));
+            },
+            child: ListTile(
+              title: Text(" Challenge section 7 Ang(Dicee)"),
+              leading: Icon(
+                Icons.devices_other,
+                color: Colors.red,
+              ),
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ChallengeSection8Ang()));
+            },
+            child: ListTile(
+              title: Text(" Challenge section 8 Ang(Ball)"),
+              leading: Icon(
+                Icons.sports_football,
+                color: Colors.red,
+              ),
+            ),
+          ),
+
+          InkWell(
+            onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => TodoListApp()));
             },
@@ -117,7 +147,8 @@ class Nafo extends StatelessWidget {
                                   child: ListTile(
                                     title:
                                         new Text('Changer le theme de mon App'),
-                                    leading: Icon(Icons.sunny, color: Colors.red ),
+                                    leading:
+                                        Icon(Icons.sunny, color: Colors.red),
                                   ),
                                 ),
                                 InkWell(
@@ -126,12 +157,14 @@ class Nafo extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                MonInscriptionApp()));
+                                                HomeScreen()));
                                   },
                                   child: ListTile(
-                                    title:
-                                        new Text("Challenge Page de Connexion"),
-                                    leading: Icon(Icons.login_outlined, color: Colors.red,),
+                                    title: new Text("Challenge body Color"),
+                                    leading: Icon(
+                                      Icons.colorize,
+                                      color: Colors.red,
+                                    ),
                                   ),
                                 )
                               ],
@@ -167,20 +200,20 @@ class Nafo extends StatelessWidget {
     );
   }
 
-  /* InkWell iconnn(
+  InkWell iconnn(
       {required String ttexx,
       required Color couleurrr,
       required IconData iconn,
       required Widget pagke}) {
     return InkWell(
       onTap: () {
-        Navigator.push(context as BuildContext,
-            MaterialPageRoute(builder: (context) => pagke));
+        Navigator.push(Builder as BuildContext,
+            MaterialPageRoute(builder: (contex) => pagke));
       },
       child: ListTile(
         title: Text(ttexx),
         leading: Icon(iconn, color: couleurrr),
       ),
     );
-  } */
+  }
 }
