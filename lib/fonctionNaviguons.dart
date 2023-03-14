@@ -3,6 +3,7 @@ import 'package:jeudi23challenge/page/challengeSection7Ang.dart';
 import 'package:jeudi23challenge/page/challengeSection8Ang.dart';
 import 'package:jeudi23challenge/page/changerLaCouleurduBody.dart';
 import 'package:jeudi23challenge/page/todoHomePage.dart';
+import 'package:jeudi23challenge/page/challengeSection9Ang.dart';
 import 'package:jeudi23challenge/pages/challengeInscription.dart';
 import 'package:jeudi23challenge/pages/changerThemePage.dart';
 import 'package:jeudi23challenge/pages/exoSection10.dart';
@@ -173,6 +174,19 @@ class Nafo extends StatelessWidget {
                         });
                   },
                   icon: Icon(Icons.arrow_drop_down_sharp)),
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => XylophoneApp()));
+            },
+            child: ListTile(
+              title: new Text("Challenge Section 9 xylophone"),
+              leading: Icon(
+                Icons.music_note,
+                color: Colors.red,
+              ),
             ),
           ),
           InkWell(
