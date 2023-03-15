@@ -24,34 +24,46 @@ class XylophoneApp extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
             child: SingleChildScrollView(
-          child: Column(
-            children: [
-              lebutton(lacouleur: Colors.red, lenombre: 1, laWidth: size.width),
-              //Spacer(),
-              lebutton(
+          child: Stack(children: [
+            lebutton(lacouleur: Colors.red, lenombre: 1, laWidth: size.width),
+            Padding(
+              padding: const EdgeInsets.only(top: 100.0),
+              child: lebutton(
                   lacouleur: Colors.orange, lenombre: 2, laWidth: size.width),
-              //Spacer(),
-              lebutton(
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 200.0),
+              child: lebutton(
                   lacouleur: Colors.yellow, lenombre: 3, laWidth: size.width),
-              //Spacer(),
-              lebutton(
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 300.0),
+              child: lebutton(
                   lacouleur: Colors.green, lenombre: 4, laWidth: size.width),
-              //Spacer(),
-              lebutton(
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 400.0),
+              child: lebutton(
                   lacouleur: Colors.teal, lenombre: 5, laWidth: size.width),
-              //Spacer(),
-              lebutton(
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 500.0),
+              child: lebutton(
                 lacouleur: Colors.blue,
                 lenombre: 6,
                 laWidth: size.width,
               ),
-              //Spacer(),
-              lebutton(
-                  lacouleur: Colors.purple, lenombre: 7, laWidth: size.width)
-            ],
-          ),
+            ),
+            Padding(
+                padding: const EdgeInsets.only(top: 500.0),
+                child: lebutton(
+                    lacouleur: Colors.purple,
+                    lenombre: 7,
+                    laWidth: size.width)),
+          ]),
         )),
       ),
     );
