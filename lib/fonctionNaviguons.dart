@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:jeudi23challenge/page/ChallengeSection9Ang.dart';
 import 'package:jeudi23challenge/page/challengeSection7Ang.dart';
 import 'package:jeudi23challenge/page/challengeSection8Ang.dart';
 import 'package:jeudi23challenge/page/changerLaCouleurduBody.dart';
 import 'package:jeudi23challenge/page/todoHomePage.dart';
-import 'package:jeudi23challenge/page/challengeSection9Ang.dart';
+
 import 'package:jeudi23challenge/pages/challengeInscription.dart';
 import 'package:jeudi23challenge/pages/changerThemePage.dart';
 import 'package:jeudi23challenge/pages/exoSection10.dart';
@@ -84,7 +85,7 @@ class Nafo extends StatelessWidget {
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => DicePage()));
             },
-            child: ListTile(
+            child: const ListTile(
               title: Text(" Challenge section 7 Ang(Dicee)"),
               leading: Icon(
                 Icons.devices_other,
@@ -113,7 +114,7 @@ class Nafo extends StatelessWidget {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => TodoListApp()));
             },
-            child: ListTile(
+            child: const ListTile(
               title: Text(" ToDo App"),
               leading: Icon(
                 Icons.list_alt_outlined,
