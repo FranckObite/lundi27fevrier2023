@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jeudi23challenge/page/ChallengeSection9Ang.dart';
+import 'package:jeudi23challenge/page/challengeSection10Ang.dart';
 import 'package:jeudi23challenge/page/challengeSection7Ang.dart';
 import 'package:jeudi23challenge/page/challengeSection8Ang.dart';
 import 'package:jeudi23challenge/page/changerLaCouleurduBody.dart';
@@ -11,9 +12,14 @@ import 'package:jeudi23challenge/pages/exoSection10.dart';
 import 'package:jeudi23challenge/pages/pageExoDuLundi27Fevrier.dart';
 import 'package:jeudi23challenge/pages/section10Exo.dart';
 
-class Nafo extends StatelessWidget {
+class Nafo extends StatefulWidget {
   const Nafo({super.key});
 
+  @override
+  State<Nafo> createState() => _NafoState();
+}
+
+class _NafoState extends State<Nafo> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -41,87 +47,27 @@ class Nafo extends StatelessWidget {
             ), */
 
           //body
+          iconnn(
+              ttexx: "challenge exo section 10 francais",
+              iconn: Icons.facebook_rounded,
+              page: MonApp()),
+          iconnn(
+              ttexx: "challenge du lundi27 fevrier",
+              iconn: Icons.run_circle,
+              page: chalengeLudi27Complet()),
+          iconnn(
+              ttexx: "Challenge section 7 Ang(Dicee)",
+              iconn: Icons.devices_other,
+              page: DicePage()),
+          iconnn(
+              ttexx: "Challenge section 8 Ang(Ball))",
+              iconn: Icons.sports_football,
+              page: ChallengeSection8Ang()),
+          iconnn(
+              ttexx: "ToDo App",
+              iconn: Icons.list_alt_outlined,
+              page: TodoListApp()),
 
-          InkWell(
-            onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => MonApp()));
-            },
-            child: ListTile(
-              title: Text("challenge exo section 10 francais"),
-              leading: Icon(
-                Icons.facebook_rounded,
-                color: Colors.red,
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {},
-            child: ListTile(
-              title: Text(" Challenge exo section 5 anglais"),
-              leading: Icon(
-                Icons.person,
-                color: Colors.red,
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => chalengeLudi27Complet()));
-            },
-            child: ListTile(
-              title: Text("challenge du lundi27 fevrier"),
-              leading: Icon(
-                Icons.run_circle,
-                color: Colors.red,
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => DicePage()));
-            },
-            child: const ListTile(
-              title: Text(" Challenge section 7 Ang(Dicee)"),
-              leading: Icon(
-                Icons.devices_other,
-                color: Colors.red,
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ChallengeSection8Ang()));
-            },
-            child: ListTile(
-              title: Text(" Challenge section 8 Ang(Ball)"),
-              leading: Icon(
-                Icons.sports_football,
-                color: Colors.red,
-              ),
-            ),
-          ),
-
-          InkWell(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => TodoListApp()));
-            },
-            child: const ListTile(
-              title: Text(" ToDo App"),
-              leading: Icon(
-                Icons.list_alt_outlined,
-                color: Colors.red,
-              ),
-            ),
-          ),
           InkWell(
             child: ListTile(
               title: Text(" Challenge Changer le theme de mon App"),
@@ -177,39 +123,21 @@ class Nafo extends StatelessWidget {
                   icon: Icon(Icons.arrow_drop_down_sharp)),
             ),
           ),
-          InkWell(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => XylophoneApp()));
-            },
-            child: ListTile(
-              title: new Text("Challenge Section 9 xylophone"),
-              leading: Icon(
-                Icons.music_note,
-                color: Colors.red,
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => S10()));
-            },
-            child: ListTile(
-              title: Text(" Autres challenges"),
-              leading: Icon(Icons.settings, color: Colors.grey),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MonInscriptionApp()));
-            },
-            child: ListTile(
-              title: Text("Page de Connexion"),
-              leading: Icon(Icons.login, color: Colors.red),
-            ),
-          ),
+          iconnn(
+              ttexx: "Challenge Section 9 xylophone",
+              iconn: Icons.music_note,
+              page: XylophoneApp()),
+          iconnn(
+              ttexx: "Autres challenges", iconn: Icons.settings, page: S10()),
+
+          iconnn(
+              ttexx: "Challenge Section 10",
+              iconn: Icons.add_task,
+              page: Quizzler()),
+          iconnn(
+              ttexx: "Page de Connexion",
+              iconn: Icons.login,
+              page: MonInscriptionApp()),
         ],
       ),
     );
@@ -217,17 +145,16 @@ class Nafo extends StatelessWidget {
 
   InkWell iconnn(
       {required String ttexx,
-      required Color couleurrr,
       required IconData iconn,
-      required Widget pagke}) {
+      required final Widget page}) {
     return InkWell(
       onTap: () {
-        Navigator.push(Builder as BuildContext,
-            MaterialPageRoute(builder: (contex) => pagke));
+        Navigator.push(
+            context, MaterialPageRoute(builder: ((context) => page)));
       },
       child: ListTile(
         title: Text(ttexx),
-        leading: Icon(iconn, color: couleurrr),
+        leading: Icon(iconn, color: Colors.red),
       ),
     );
   }
