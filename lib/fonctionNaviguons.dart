@@ -4,6 +4,8 @@ import 'package:jeudi23challenge/page/challengeSection10Ang.dart';
 import 'package:jeudi23challenge/page/challengeSection7Ang.dart';
 import 'package:jeudi23challenge/page/challengeSection8Ang.dart';
 import 'package:jeudi23challenge/page/changerLaCouleurduBody.dart';
+import 'package:jeudi23challenge/page/pianoVirtual.dart';
+import 'package:jeudi23challenge/page/section14Fran.dart';
 import 'package:jeudi23challenge/page/todoHomePage.dart';
 
 import 'package:jeudi23challenge/pages/challengeInscription.dart';
@@ -36,7 +38,7 @@ class _NafoState extends State<Nafo> {
               child: Icon(Icons.person, color: Colors.white),
             ),
             decoration:
-                new BoxDecoration(color: Color.fromARGB(255, 4, 123, 111)),
+                const BoxDecoration(color: Color.fromARGB(255, 4, 123, 111)),
           ),
 
           /* MafonctionMia(
@@ -54,7 +56,7 @@ class _NafoState extends State<Nafo> {
           iconnn(
               ttexx: "challenge du lundi27 fevrier",
               iconn: Icons.run_circle,
-              page: chalengeLudi27Complet()),
+              page: const chalengeLudi27Complet()),
           iconnn(
               ttexx: "Challenge section 7 Ang(Dicee)",
               iconn: Icons.devices_other,
@@ -129,6 +131,13 @@ class _NafoState extends State<Nafo> {
               page: XylophoneApp()),
           iconnn(
               ttexx: "Autres challenges", iconn: Icons.settings, page: S10()),
+          iconnn(
+              ttexx: "Section 14", iconn: Icons.photo, page: ImagePickerApp()),
+
+          iconnn(
+              ttexx: "Mon Piano demo",
+              iconn: Icons.piano,
+              page: MonPianoVirtuel()),
 
           iconnn(
               ttexx: "Challenge Section 10",

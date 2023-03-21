@@ -73,7 +73,7 @@ class ToDoTile extends StatelessWidget {
               ),
               subtitle: Text(
                 Description,
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Color.fromARGB(255, 142, 118, 118)),
               ),
               //revenir dessus après
               trailing: Checkbox(

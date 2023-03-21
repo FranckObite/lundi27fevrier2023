@@ -39,7 +39,26 @@ class _QuizPageState extends State<QuizPage> {
     [" NAN sigifie Non Aux Noix ?", true],
   ];
   var i = 0;
+  bool vrai = true;
+  var liconne = true;
+
+  late List<String> laListe;
+
   get unElement => maList[i][0];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    laListe = [];
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -72,7 +91,7 @@ class _QuizPageState extends State<QuizPage> {
                 decoration: BoxDecoration(color: Colors.green),
                 child: Center(
                   child: Text(
-                    'True',
+                    '$vrai',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20.0,
@@ -82,10 +101,13 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 setState(() {
-                  if (i < maList.length - 1) {
+                  for (i; i < maList.length - 1; i++) {
                     i == i++;
-                  } else {
-                    i == i--;
+                    if (vrai = maList[i][1]) {
+                      laListe.add(liconne.toString());
+                    } else {
+                      laListe.add((!liconne).toString());
+                    }
                   }
 
                   /* for (int j = 1; j < maList.length  ; j++) {
@@ -108,7 +130,7 @@ class _QuizPageState extends State<QuizPage> {
                 decoration: BoxDecoration(color: Colors.red),
                 child: Center(
                   child: Text(
-                    'False',
+                    '${!vrai}',
                     style: TextStyle(
                       fontSize: 20.0,
                       color: Colors.white,
@@ -122,6 +144,11 @@ class _QuizPageState extends State<QuizPage> {
             ),
           ),
         ),
+        Expanded(
+            child: Container(
+          child: Text("laListe.toString()"),
+        ))
+
         //TODO: Add a Row here as your score keeper
       ],
     );

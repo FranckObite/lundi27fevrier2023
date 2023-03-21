@@ -9,6 +9,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:jeudi23challenge/data/database.dart';
 import 'package:jeudi23challenge/ludi27.dart';
 
+
 /* import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hive_generator/hive_generator.dart';
@@ -80,6 +81,9 @@ class _TodoListAppState extends State<TodoListApp> {
     Navigator.of(context).pop();
     db.updateDataBase();
   }
+  
+
+  
 
   //création d'une nouvelle chose à faire
 
@@ -177,7 +181,8 @@ class _TodoListAppState extends State<TodoListApp> {
                 taskName: " Challenge algo",
                 taskCompletd: true,
                 onChanged: (p0) {}) */
-        ));
+        )
+        );
   }
 
   /* fontion(int nbBoucle) {
