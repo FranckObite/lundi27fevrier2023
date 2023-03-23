@@ -49,6 +49,12 @@ class _ImagePickerAppState extends State<ImagePickerApp> {
                       },
                       child: Icon(Icons.camera),
                     ),
+                    FloatingActionButton(
+                      backgroundColor: Colors.red,
+                        onPressed: () {
+                          ShowMyDialog(dialog: CreateAlert());
+                        },
+                        child: Icon(Icons.delete))
                   ],
                 ),
               ],
@@ -57,6 +63,41 @@ class _ImagePickerAppState extends State<ImagePickerApp> {
         ),
       ),
     ));
+  }
+
+  AlertDialog CreateAlert() {
+    return AlertDialog(
+      title: Text('Ma premiere Alerte'),
+      content: Text("Voulez vous suprimer l'image?"),
+      actions: [
+        TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text('NON')),
+        TextButton(
+            onPressed: () {
+              suprimerImage();
+              Navigator.of(context).pop();
+            },
+            child: Text('Avec plaisir')),
+      ],
+    );
+  }
+
+  Future<void> ShowMyDialog({required AlertDialog dialog}) async {
+    await showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext ctx) {
+          return dialog;
+        });
+  }
+
+  suprimerImage() {
+    setState(() {
+      imageFile = null;
+    });
   }
 
   Future pickImage(ImageSource sources) async {

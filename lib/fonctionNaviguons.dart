@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:jeudi23challenge/page/ChallengeSection9Ang.dart';
+import 'package:jeudi23challenge/page/Section17PageQuiz.dart';
 import 'package:jeudi23challenge/page/challengeSection10Ang.dart';
 import 'package:jeudi23challenge/page/challengeSection7Ang.dart';
 import 'package:jeudi23challenge/page/challengeSection8Ang.dart';
 import 'package:jeudi23challenge/page/changerLaCouleurduBody.dart';
 import 'package:jeudi23challenge/page/pianoVirtual.dart';
+import 'package:jeudi23challenge/page/pop_up_and_nav.dart';
 import 'package:jeudi23challenge/page/section14Fran.dart';
 import 'package:jeudi23challenge/page/todoHomePage.dart';
 
@@ -138,6 +140,12 @@ class _NafoState extends State<Nafo> {
               ttexx: "Mon Piano demo",
               iconn: Icons.piano,
               page: MonPianoVirtuel()),
+          iconnn(
+              ttexx: "Section 16 Fran",
+              iconn: Icons.note,
+              page: Section16Francaise()),
+          iconnn(
+              ttexx: "Section 17 Challenge", iconn: Icons.quiz, page: Quiz()),
 
           iconnn(
               ttexx: "Challenge Section 10",
