@@ -1,4 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jeudi23challenge/page/adaptivePage.dart';
+
+import 'android_page.dart';
+import 'ios_page.dart';
 
 class DemoCupertino extends StatefulWidget {
   const DemoCupertino({super.key});
@@ -12,8 +17,10 @@ class _DemoCupertinoState extends State<DemoCupertino> {
   Widget build(BuildContext context) {
     final platforme = Theme.of(context).platform;
     String montrerLaplateForme = platforme.toString();
-    return MaterialApp(
-        home: Scaffold(
+    bool isOs = (platforme == TargetPlatform.iOS);
+    return isOs
+        ? IOSBase()
+        : androidBase(); /* Scaffold(
             appBar: AppBar(
               title: Text("Demo Cupertino"),
             ),
@@ -22,6 +29,22 @@ class _DemoCupertinoState extends State<DemoCupertino> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [Text('$montrerLaplateForme')],
               ),
-            )));
+            )) */
+  }
+
+  CupertinoApp IOSBase({required Tar}) {
+    return CupertinoApp(
+      theme: CupertinoThemeData(primaryColor: Colors.red),
+      title: "learn Cupertino",
+      home: AdaptivePage(platform: null,),
+    );
+  }
+
+  MaterialApp androidBase() {
+    return MaterialApp(
+      theme: ThemeData(primarySwatch: Colors.red),
+      title: "learn Cupertino",
+      home: AdaptivePage(),
+    );
   }
 }

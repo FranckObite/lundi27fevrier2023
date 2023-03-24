@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jeudi23challenge/page/ChallengeSection9Ang.dart';
 import 'package:jeudi23challenge/page/Section17PageQuiz.dart';
+import 'package:jeudi23challenge/page/Section18Fran.dart';
 import 'package:jeudi23challenge/page/challengeSection10Ang.dart';
 import 'package:jeudi23challenge/page/challengeSection7Ang.dart';
 import 'package:jeudi23challenge/page/challengeSection8Ang.dart';
@@ -146,6 +147,7 @@ class _NafoState extends State<Nafo> {
               page: Section16Francaise()),
           iconnn(
               ttexx: "Section 17 Challenge", iconn: Icons.quiz, page: Quiz()),
+              iconnn(ttexx: 'Section 18', iconn: Icons.ios_share, page: DemoCupertino()),
 
           iconnn(
               ttexx: "Challenge Section 10",
