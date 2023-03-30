@@ -10,6 +10,7 @@ import 'package:jeudi23challenge/page/pianoVirtual.dart';
 import 'package:jeudi23challenge/page/pop_up_and_nav.dart';
 import 'package:jeudi23challenge/page/section14Fran.dart';
 import 'package:jeudi23challenge/page/todoHomePage.dart';
+import 'package:jeudi23challenge/section12Anglais/bmi_Calculator.dart';
 
 import 'package:jeudi23challenge/pages/challengeInscription.dart';
 import 'package:jeudi23challenge/pages/changerThemePage.dart';
@@ -147,12 +148,19 @@ class _NafoState extends State<Nafo> {
               page: Section16Francaise()),
           iconnn(
               ttexx: "Section 17 Challenge", iconn: Icons.quiz, page: Quiz()),
-              iconnn(ttexx: 'Section 18', iconn: Icons.ios_share, page: DemoCupertino()),
+          iconnn(
+              ttexx: 'Section 18',
+              iconn: Icons.ios_share,
+              page: DemoCupertino()),
 
           iconnn(
               ttexx: "Challenge Section 10",
               iconn: Icons.add_task,
               page: Quizzler()),
+          iconnn(
+              ttexx: 'Challenge section 12',
+              iconn: Icons.calculate,
+              page: InputPage()),
           iconnn(
               ttexx: "Page de Connexion",
               iconn: Icons.login,

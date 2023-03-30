@@ -19,7 +19,7 @@ class _DemoCupertinoState extends State<DemoCupertino> {
     String montrerLaplateForme = platforme.toString();
     bool isOs = (platforme == TargetPlatform.iOS);
     return isOs
-        ? IOSBase()
+        ? IOSBase(Tar: null)
         : androidBase(); /* Scaffold(
             appBar: AppBar(
               title: Text("Demo Cupertino"),
@@ -34,17 +34,18 @@ class _DemoCupertinoState extends State<DemoCupertino> {
 
   CupertinoApp IOSBase({required Tar}) {
     return CupertinoApp(
-      theme: CupertinoThemeData(primaryColor: Colors.red),
-      title: "learn Cupertino",
-      home: AdaptivePage(platform: null,),
-    );
+        theme: CupertinoThemeData(primaryColor: Colors.red),
+        title: "learn Cupertino",
+        home: CupertinoPageScaffold(
+            child: Center()) /* AdaptivePage(platform:  ), */
+        );
   }
 
   MaterialApp androidBase() {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.red),
-      title: "learn Cupertino",
-      home: AdaptivePage(),
-    );
+        theme: ThemeData(primarySwatch: Colors.red),
+        title: "learn Cupertino",
+        home: Container() /* AdaptivePage(platform: null,), */
+        );
   }
 }

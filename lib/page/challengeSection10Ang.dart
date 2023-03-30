@@ -1,5 +1,10 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:audioplayers/audioplayers.dart';
+
+import 'package:jeudi23challenge/main.dart';
 
 class Quizzler extends StatefulWidget {
   @override
@@ -30,27 +35,41 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List maList = [
+    ["le Taj Mahal se trouve en Inde?", true],
     [
-      "1+1=5 ?",
+      "Flutter est utilisé pour développer des applications pour Android, iOS, Linux, Mac, Windows, Google Fuchsia et le web à partir d'une seule base de code.",
+      true
+    ],
+    [
+      " la Musique profane et le rap sont les deux types de musique qui ont coexités au Moyen Âge. ",
       false,
     ],
-    ["2/2=1 ?", true],
-    ["9-9=9?", false],
-    [" NAN sigifie Non Aux Noix ?", true],
+    [
+      "Flutter est un kit de développement logiciel d'interface utilisateur open-source créé par Google.",
+      true
+    ],
+    ["Le Safari de la vie est une oeuvre signée John P. Strecleky ?", true],
+    ["Ode a la patrie est l'hymne Nationale de la CI?", false],
+    [" NAN sigifie Non Aux Noix ?", false],
   ];
+
   var i = 0;
-  bool vrai = true;
+  var leScore = 0;
+
   var liconne = true;
 
-  late List<String> laListe;
+  List<Icon> laListe = [];
+
+  var lobservation = "Bonne reponse";
+  var lobservation2 = "Mauvaise reponse";
 
   get unElement => maList[i][0];
+  get uneReponse => maList[i][1];
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    laListe = [];
   }
 
   @override
@@ -65,6 +84,14 @@ class _QuizPageState extends State<QuizPage> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.only(top: 40.0),
+          child: Text(
+            " Votre score est : $leScore",
+            style: TextStyle(
+                color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+        ),
         Expanded(
           flex: 5,
           child: Padding(
@@ -81,82 +108,116 @@ class _QuizPageState extends State<QuizPage> {
             ),
           ),
         ),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.all(15.0),
-            child: TextButton(
-              child: Container(
-                width: 400,
-                height: 80,
-                decoration: BoxDecoration(color: Colors.green),
-                child: Center(
-                  child: Text(
-                    '$vrai',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                    ),
-                  ),
-                ),
-              ),
-              onPressed: () {
-                setState(() {
-                  for (i; i < maList.length - 1; i++) {
-                    i == i++;
-                    if (vrai = maList[i][1]) {
-                      laListe.add(liconne.toString());
-                    } else {
-                      laListe.add((!liconne).toString());
-                    }
-                  }
+        ourExpanded(
+          leBooleen: true,
+          laCouleur: Colors.green,
+        ),
+        ourExpanded(
+          leBooleen: false,
+          laCouleur: Colors.red,
+        ),
+        Spacer(),
 
-                  /* for (int j = 1; j < maList.length  ; j++) {
-                    i = j;
-                  } */
-                  //i = Random().nextInt(maList.length);
-                });
-                //The user picked true.
-              },
-            ),
-          ),
-        ),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.all(15.0),
-            child: TextButton(
-              child: Container(
-                width: 400,
-                height: 80,
-                decoration: BoxDecoration(color: Colors.red),
-                child: Center(
-                  child: Text(
-                    '${!vrai}',
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-              onPressed: () {
-                //The user picked false.
-              },
-            ),
-          ),
-        ),
-        Expanded(
-            child: Container(
-          child: Text("laListe.toString()"),
-        ))
+        Padding(
+          padding: const EdgeInsets.all(40.0),
+          child: Row(children: laListe),
+        )
 
         //TODO: Add a Row here as your score keeper
       ],
     );
   }
-}
 
-/*
-question1: 'You can lead a cow down stairs but not up stairs.', false,
-question2: 'Approximately one quarter of human bones are in the feet.', true,
-question3: 'A slug\'s blood is green.', true,
-*/
+  Expanded ourExpanded({
+    required bool leBooleen,
+    required Color laCouleur,
+  }) {
+    return Expanded(
+      child: Padding(
+        padding: EdgeInsets.all(15.0),
+        child: TextButton(
+            child: Container(
+              width: 400,
+              height: 80,
+              decoration: BoxDecoration(color: laCouleur),
+              child: Center(
+                child: Text(
+                  '$leBooleen',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            onPressed: () {
+              setState(() {
+                if (leBooleen == uneReponse) {
+                  final player = AudioPlayer();
+                  player.play(AssetSource('note8.wav'));
+                  leScore++;
+                  laListe.add(Icon(
+                    Icons.check,
+                    color: Colors.green,
+                  ));
+                } else {
+                  laListe.add(Icon(
+                    Icons.clear,
+                    color: Colors.red,
+                  ));
+                  final player1 = AudioPlayer();
+                  player1.play(AssetSource('note9.wav'));
+                }
+                laQuestionSuivante();
+              });
+            }
+
+            //The user picked false.
+
+            ),
+      ),
+    );
+  }
+
+  Future<void> leDialog() async {
+    return await showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("Resultat"),
+            content: Text(
+              "Votre score final est de : $leScore points.",
+            ),
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: ((context) => Quizzler())));
+                  },
+                  child: Text(
+                    "Reprendre le Quiz",
+                  )),
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: ((context) => MyApp())));
+                  },
+                  child: Text(
+                    "Sortir du Quiz",
+                  ))
+            ],
+          );
+        });
+  }
+
+  void laQuestionSuivante() {
+    if (i < maList.length - 1) {
+      setState(() {
+        i++;
+      });
+    } else {
+      leDialog();
+    }
+  }
+}

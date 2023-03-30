@@ -47,6 +47,7 @@ dependencies:
   audioplayers: ^3.0.1
   image_picker: ^0.8.7
   flutter_virtual_piano: ^0.0.9
+  font_awesome_flutter: ^10.4.0
 
 dev_dependencies:
   flutter_test:
