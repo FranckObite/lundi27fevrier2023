@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:jeudi23challenge/section12Anglais/calculator_brain.dart';
+import 'package:jeudi23challenge/section12Anglais/resultPage.dart';
+import 'package:jeudi23challenge/section12Anglais/round_Icon_button.dart';
+import 'package:jeudi23challenge/section12Anglais/screen0.dart';
 
 import 'Constants.dart';
 import 'ReusableCard.dart';
+import 'button_button.dart';
 import 'icon_Content.dart';
+import 'dart:math';
 
 enum Gender { male, female }
 
@@ -15,6 +21,9 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
   int heigth = 180;
+  int weight = 60;
+  int age = 25;
+  int bmi = 0;
 
   /* Color MaleCardColous = inactiveCardColour;
   Color FemaleCardColous = inactiveCardColour; */
@@ -139,35 +148,108 @@ class _InputPageState extends State<InputPage> {
                   Expanded(
                     child: ReusableCard(
                       Couleur: KActiveCardColour,
-                      cardChild: Column(),
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("WEIGTH", style: KLabelStyle),
+                          Text(
+                            "$weight",
+                            style: KlabelTextStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundIconButton(
+                                  icon: FontAwesomeIcons.minus,
+                                  onPressed: () {
+                                    setState(() {
+                                      if (weight < 1) {
+                                        weight = 0;
+                                      } else {
+                                        weight--;
+                                      }
+                                    });
+                                  }),
+                              SizedBox(
+                                width: 10.0,
+                              ),
+                              RoundIconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    weight++;
+                                  });
+                                },
+                                icon: FontAwesomeIcons.plus,
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                       onPress: () {},
                     ),
                   ),
                   Expanded(
                     child: ReusableCard(
                       Couleur: KActiveCardColour,
-                      cardChild: Column(),
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("AGE", style: KLabelStyle),
+                          Text(
+                            "$age",
+                            style: KlabelTextStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundIconButton(
+                                  icon: FontAwesomeIcons.minus,
+                                  onPressed: () {
+                                    setState(() {
+                                      if (age < 1) {
+                                        age = 0;
+                                      } else {
+                                        age--;
+                                      }
+                                    });
+                                  }),
+                              SizedBox(
+                                width: 10.0,
+                              ),
+                              RoundIconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    age++;
+                                  });
+                                },
+                                icon: FontAwesomeIcons.plus,
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                       onPress: () {},
                     ),
                   ),
                 ],
               )),
-              Container(
-                color: KBottomContainerColour,
-                margin: EdgeInsets.only(top: 10),
-                width: double.infinity,
-                height: kBottomContainerHeight,
+              BottomButton(
+                buttonTitle: 'CALCULATTE',
+                onTap: () {
+                  CalculatorBrain cal =
+                      CalculatorBrain(height: heigth, weight: weight);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RzsultPage(
+                                bmiResult: cal.calculateBMI(),
+                                interpretation: cal.getInterpretation(),
+                                resultText: cal.getResult(),
+                              )));
+                },
               )
             ],
-          )
-          /* floatingActionButton: Theme(
-          data: ThemeData(accentColor: Colors.purple),
-          child: FloatingActionButton(
-            onPressed: () {},
-            child: Icon(Icons.add),
-          ),
-        ), */
-          ),
+          )),
     );
   }
 

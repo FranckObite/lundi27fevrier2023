@@ -10,6 +10,7 @@ import 'package:jeudi23challenge/page/pianoVirtual.dart';
 import 'package:jeudi23challenge/page/pop_up_and_nav.dart';
 import 'package:jeudi23challenge/page/section14Fran.dart';
 import 'package:jeudi23challenge/page/todoHomePage.dart';
+import 'package:jeudi23challenge/screens/loadingScreen.dart';
 import 'package:jeudi23challenge/section12Anglais/bmi_Calculator.dart';
 
 import 'package:jeudi23challenge/pages/challengeInscription.dart';
@@ -17,6 +18,9 @@ import 'package:jeudi23challenge/pages/changerThemePage.dart';
 import 'package:jeudi23challenge/pages/exoSection10.dart';
 import 'package:jeudi23challenge/pages/pageExoDuLundi27Fevrier.dart';
 import 'package:jeudi23challenge/pages/section10Exo.dart';
+import 'package:jeudi23challenge/section19/section19Page.dart';
+
+import 'dosierListe2Fourniure/fourniture.dart';
 
 class Nafo extends StatefulWidget {
   const Nafo({super.key});
@@ -158,9 +162,19 @@ class _NafoState extends State<Nafo> {
               iconn: Icons.add_task,
               page: Quizzler()),
           iconnn(
+              ttexx: "section 19", iconn: Icons.list, page: FournitureListe()),
+          iconnn(
+              ttexx: "section 19 b",
+              iconn: Icons.list_alt,
+              page: Section19Page()),
+          iconnn(
               ttexx: 'Challenge section 12',
               iconn: Icons.calculate,
               page: InputPage()),
+          iconnn(
+              ttexx: "Section 13 Anglaise",
+              iconn: Icons.nat,
+              page: LoadingScreen()),
           iconnn(
               ttexx: "Page de Connexion",
               iconn: Icons.login,
