@@ -19,6 +19,10 @@ import 'package:jeudi23challenge/pages/exoSection10.dart';
 import 'package:jeudi23challenge/pages/pageExoDuLundi27Fevrier.dart';
 import 'package:jeudi23challenge/pages/section10Exo.dart';
 import 'package:jeudi23challenge/section19/section19Page.dart';
+import 'package:jeudi23challenge/section20/section21a.dart';
+import 'package:jeudi23challenge/section21/controlleur/home_Controller.dart';
+import 'package:jeudi23challenge/section21/section21Rss.dart';
+import 'package:jeudi23challenge/section22/section22.dart';
 
 import 'dosierListe2Fourniure/fourniture.dart';
 
@@ -167,6 +171,15 @@ class _NafoState extends State<Nafo> {
               ttexx: "section 19 b",
               iconn: Icons.list_alt,
               page: Section19Page()),
+          iconnn(
+              ttexx: "Challenge section 20",
+              iconn: Icons.grid_3x3,
+              page: ChallengeSection21()),
+          iconnn(ttexx: "Section 21", iconn: Icons.http, page: Section21()),
+          iconnn(
+              ttexx: "Section 22a",
+              iconn: Icons.info,
+              page: HomePageChallenge22()),
           iconnn(
               ttexx: 'Challenge section 12',
               iconn: Icons.calculate,
