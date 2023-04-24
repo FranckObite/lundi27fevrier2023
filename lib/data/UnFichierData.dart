@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jeudi23challenge/Section23AG/model/video_view.dart';
 
 import '../page/Question.dart';
 
@@ -55,4 +56,6 @@ class Datas {
         explication: 'Dire que je me plains avec mes 8GO de ram sur mon mac',
         imagePath: 'eagle.jpg'),
   ];
+
+  
 }

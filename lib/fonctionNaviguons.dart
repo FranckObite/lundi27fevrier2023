@@ -23,7 +23,11 @@ import 'package:jeudi23challenge/section20/section21a.dart';
 import 'package:jeudi23challenge/section21/controlleur/home_Controller.dart';
 import 'package:jeudi23challenge/section21/section21Rss.dart';
 import 'package:jeudi23challenge/section22/section22.dart';
+import 'package:jeudi23challenge/section24/section24.dart';
+import 'package:jeudi23challenge/section25/Section25.dart';
 
+import 'Section23AG/section23ch.dart';
+import 'chalengesection25/challengeSection25.dart';
 import 'dosierListe2Fourniure/fourniture.dart';
 
 class Nafo extends StatefulWidget {
@@ -180,6 +184,19 @@ class _NafoState extends State<Nafo> {
               ttexx: "Section 22a",
               iconn: Icons.info,
               page: HomePageChallenge22()),
+          iconnn(
+              ttexx: "Section 23",
+              iconn: Icons.video_call,
+              page: Section23Challenge()),
+          iconnn(ttexx: "Section 24", iconn: Icons.draw, page: Section24()),
+          iconnn(
+              ttexx: "Challenge Section 25",
+              iconn: Icons.home_filled,
+              page: Section25()),
+          iconnn(
+              ttexx: "debatChallenge",
+              iconn: Icons.speaker,
+              page: Challenge25()),
           iconnn(
               ttexx: 'Challenge section 12',
               iconn: Icons.calculate,
