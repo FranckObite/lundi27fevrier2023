@@ -29,7 +29,8 @@ class HomeController extends StatelessWidget {
                           text: type.type,
                         ))
                     .toList(),
-              )),
+              )
+              ),
           body: TabBarView(
             children:
                 types.map((type) => FeedController(url: type.url)).toList(),
