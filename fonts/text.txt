@@ -1,0 +1,30 @@
+   Container monImageCarousel({required double size}) {
+    return Container(
+      height: size,
+      child: Carousel(
+        boxFit: BoxFit.cover,
+        images: [
+          AssetImage("images/NAN.png"),
+          AssetImage("images/9.jpg"),
+          AssetImage("images/imageProjet2.jpeg"),
+          AssetImage("images/10.jpeg"),
+          AssetImage("images/imageProjet4.jpeg"),
+          AssetImage("images/imagesProjet.png"),
+          AssetImage("images/rotary-plow-g6dedf12d8_1920.jpg"),
+        ],
+        autoplay: true,
+        //animationCurve: Curves.fastOutSlowIn,
+        //animationDuration: Duration(milliseconds: 1000),
+        dotSize: 4.0,
+        dotColor: Colors.orange,
+        indicatorBgPadding: 2.0,
+        //dotBgColor: Colors.transparent,
+      ),
+    );
+  }
+
+
+    
+￼
+￼
+

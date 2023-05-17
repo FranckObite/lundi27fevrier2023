@@ -30,7 +30,7 @@ class _DrawerSection24State extends State<DrawerSection24> {
             itemCount: 9,
             itemBuilder: (context, index) {
               if (index == 0) {
-                return DrawerHeader(
+                return const DrawerHeader(
                     child: Center(
                         child: Icon(
                   Icons.car_rental,
@@ -51,7 +51,7 @@ class _DrawerSection24State extends State<DrawerSection24> {
             }),
       ),
       appBar: AppBar(
-        title: Text("Apprendre le Drawer"),
+        title: const Text("Apprendre le Drawer"),
         backgroundColor: Colors.orange,
       ),
       body: Center(

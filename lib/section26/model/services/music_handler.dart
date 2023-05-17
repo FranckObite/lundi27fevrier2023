@@ -1,6 +1,7 @@
 import 'package:jeudi23challenge/section26/model/raw_model/artist.dart';
 import 'package:jeudi23challenge/section26/model/services/musique_datas.dart';
 
+import '../enums/genre.dart';
 import '../raw_model/album.dart';
 
 class MusicHandler {
@@ -37,5 +38,16 @@ class MusicHandler {
       }
     }
     return albums;
+  }
+
+  List<Genre> allGenres() {
+    List<Genre> genres = [];
+    final all = datass.allDatas();
+    for (var song in all) {
+      if (!genres.contains(song.genre)) {
+        genres.add(song.genre);
+      }
+    }
+    return genres;
   }
 }

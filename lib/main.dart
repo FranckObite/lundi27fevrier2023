@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
                   style:
                       GoogleFonts.pacifico(fontSize: 40, color: Colors.white),
                 ),
-                leading: CircleAvatar(
+                leading: const CircleAvatar(
                   radius: 30.0,
 
                   //backgroundColor: Color.fromARGB(255, 106, 80, 2),
@@ -60,14 +60,14 @@ class MyApp extends StatelessWidget {
                   //foregroundColor: Color.fromARGB(255, 31, 0, 8),
                   foregroundImage: AssetImage('images/moi.png'),
                 ),
-                subtitle: Text("DEVELOPPEUR FLUTER",
+                subtitle: const Text("DEVELOPPEUR FLUTER",
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
                     )),
               ),
             ),
-            SizedBox(height: 20),
+           const SizedBox(height: 20),
             Padding(
               padding: EdgeInsets.all(30),
               child: Column(
